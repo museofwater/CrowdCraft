@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
+import com.crowdcraft.gl.GLClearRenderer;
 import com.crowdcraft.view.CameraView;
 
 public class CameraProjectActivity extends Activity {

@@ -1,16 +1,14 @@
 package com.crowdcraft.activity;
 
-import android.graphics.PixelFormat;
-import android.opengl.GLSurfaceView;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.crowdcraft.GLClearRenderer;
 import com.crowdcraft.R;
 import com.crowdcraft.view.CameraView;
+import com.crowdcraft.view.Geomtery3DView;
 
 
 public class ViewerActivity extends ActionBarActivity {
@@ -21,16 +19,19 @@ public class ViewerActivity extends ActionBarActivity {
         setContentView(R.layout.activity_viewer);
         FrameLayout viewerPane = (FrameLayout) findViewById(R.id.viewerPane);
 
-        // Now let's create an OpenGL surface.
-        GLSurfaceView glView = new GLSurfaceView( this );
-        // To see the camera preview, the OpenGL surface has to be created translucently.
-        // See link above.
-        glView.setEGLConfigChooser( 8, 8, 8, 8, 16, 0 );
-        glView.getHolder().setFormat( PixelFormat.TRANSLUCENT );
-        // The renderer will be implemented in a separate class
-        glView.setRenderer( new GLClearRenderer() );
-        // Now set this as the main view.
-        viewerPane.addView(glView);
+//        // Now let's create an OpenGL surface.
+//        GLSurfaceView glView = new GLSurfaceView( this );
+//        // To see the camera preview, the OpenGL surface has to be created translucently.
+//        // See link above.
+//        glView.setEGLConfigChooser( 8, 8, 8, 8, 16, 0 );
+//        glView.getHolder().setFormat( PixelFormat.TRANSLUCENT );
+//        // The renderer will be implemented in a separate class
+//        glView.setRenderer( new GLClearRenderer() );
+//        // Now set this as the main view.
+//        viewerPane.addView(glView);
+        Geomtery3DView geomView = new Geomtery3DView(this);
+//        geomView.setRenderer(new GLClearRenderer());
+        viewerPane.addView(geomView);
 
         CameraView cameraView = new CameraView(getApplicationContext(),this);
         viewerPane.addView(cameraView);

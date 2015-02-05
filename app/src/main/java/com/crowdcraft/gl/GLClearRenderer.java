@@ -1,15 +1,18 @@
-package com.crowdcraft;
+package com.crowdcraft.gl;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.opengl.GLU;
 import android.opengl.GLSurfaceView.Renderer;
+import android.opengl.Matrix;
+
+import com.crowdcraft.gl.Cube;
 
 public class GLClearRenderer implements Renderer {
 	
-	 private Cube mCube = new Cube();
-     private float mCubeRotation;
+	private Cube mCube = new Cube();
+    private float mCubeRotation;
 
     public void onDrawFrame( GL10 gl ) {
         // This method is called per frame, as the name suggests.
@@ -23,7 +26,7 @@ public class GLClearRenderer implements Renderer {
         gl.glTranslatef(0.0f, 0.0f, -10.0f);
         gl.glRotatef(mCubeRotation, 1.0f, 1.0f, 1.0f);
             
-        mCube.draw(gl);
+
            
         gl.glLoadIdentity();                                    
             
@@ -47,6 +50,7 @@ public class GLClearRenderer implements Renderer {
     }
  
     public void onSurfaceCreated( GL10 gl, EGLConfig config ) {
+
         // No need to do anything here.
     	gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f); 
         
@@ -57,4 +61,6 @@ public class GLClearRenderer implements Renderer {
         gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT,
                   GL10.GL_NICEST);
     }
+
+
 }
